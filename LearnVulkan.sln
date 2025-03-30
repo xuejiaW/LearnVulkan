@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_02_Development_Environment", "_02_Development_Environment\_02_Development_Environment.vcxproj", "{F61D4547-73EB-46A4-9ADA-E22742FA579A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_03_Base_Code", "_03_Base_Code\_03_Base_Code.vcxproj", "{F61D4547-73EB-46A4-9ADA-E22742FA579A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
