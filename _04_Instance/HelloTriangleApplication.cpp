@@ -90,7 +90,7 @@ void HelloTriangleApplication::checkRequiredGlfwExtensions()
     std::cout << "required extensions: \n";
     for (uint32_t i = 0; i != glfwExtensionCount; ++i)
     {
-        std::cout << "\t" << glfwExtension[i] << std::endl;
+        std::cout << "\t" << glfwExtension[i] << '\n';
     }
 }
 
