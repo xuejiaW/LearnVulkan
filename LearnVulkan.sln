@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_04_Instance", "_04_Instanc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_05_Validation_Layers", "_05_Validation_Layers\_05_Validation_Layers.vcxproj", "{88F50417-CE01-47B2-A397-060C7221DA63}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_0501_Refactor_Validation_Layer", "_0501_Refactor_Validation_Layer\_0501_Refactor_Validation_Layer.vcxproj", "{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -40,5 +42,13 @@ Global
 		{88F50417-CE01-47B2-A397-060C7221DA63}.Release|Win32.Build.0 = Release|Win32
 		{88F50417-CE01-47B2-A397-060C7221DA63}.Release|x64.ActiveCfg = Release|x64
 		{88F50417-CE01-47B2-A397-060C7221DA63}.Release|x64.Build.0 = Release|x64
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Debug|Win32.Build.0 = Debug|Win32
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Debug|x64.ActiveCfg = Debug|x64
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Debug|x64.Build.0 = Debug|x64
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Release|Win32.ActiveCfg = Release|Win32
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Release|Win32.Build.0 = Release|Win32
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Release|x64.ActiveCfg = Release|x64
+		{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
