@@ -1,4 +1,4 @@
-﻿#include "ValidationLayerMgr.h"
+#include "ValidationLayerMgr.h"
 
 #include <vulkan/vulkan_core.h>
 
@@ -58,3 +58,4 @@ bool ValidationLayerMgr::checkValidationLayerSupport()
     if (!layerFound) return false;
     return true;
 }
+

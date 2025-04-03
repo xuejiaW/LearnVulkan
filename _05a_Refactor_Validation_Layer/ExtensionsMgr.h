@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <vulkan/vulkan_core.h>
 
 #include <vector>
@@ -10,3 +10,4 @@ public:
     static void checkRequiredGlfwExtensions();
     static std::vector<const char*> getRequiredExtensions();
 };
+

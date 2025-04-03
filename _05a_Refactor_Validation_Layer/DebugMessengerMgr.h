@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <vulkan/vulkan_core.h>
 
 class DebugMessengerMgr
@@ -14,3 +14,4 @@ public:
 private:
     static VkDebugUtilsMessengerEXT debugMessenger;
 };
+

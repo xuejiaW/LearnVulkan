@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <vulkan/vulkan_core.h>
 
 class ValidationLayerMgr
@@ -9,3 +9,4 @@ public:
     static bool checkValidationLayerSupport();
     static bool enableValidationLayers;
 };
+

@@ -1,4 +1,4 @@
-﻿#include "DebugMessengerMgr.h"
+#include "DebugMessengerMgr.h"
 #include <iostream>
 
 VkDebugUtilsMessengerEXT DebugMessengerMgr::debugMessenger = nullptr;
@@ -53,3 +53,4 @@ void DebugMessengerMgr::setupDebugMessenger(VkInstance instance)
         throw std::runtime_error("failed to set up debug messenger!");
     }
 }
+

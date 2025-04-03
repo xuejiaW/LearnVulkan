@@ -1,4 +1,4 @@
-﻿#include "ExtensionsMgr.h"
+#include "ExtensionsMgr.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "ValidationLayerMgr.h"
@@ -44,3 +44,4 @@ std::vector<const char*> ExtensionsMgr::getRequiredExtensions()
 
     return extensions;
 }
+

@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{E03B9CF2-3D92-4742-956D-92FF4DEBCE61}</ProjectGuid>
+    <ProjectGuid>{6AE1A465-3D29-48B7-819D-9854465B20A3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>_0501_Refactor_Validation_Layer</RootNamespace>
+    <RootNamespace>_05a_Refactor_Validation_Layer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -165,7 +165,7 @@
     <ClCompile Include="ExtensionsMgr.cpp" />
     <ClCompile Include="HelloTriangleApplication.cpp" />
     <ClCompile Include="ValidationLayerMgr.cpp" />
-    <ClCompile Include="_0501_Refactor_Validation_Layer.cpp" />
+    <ClCompile Include="_05a_Refactor_Validation_Layer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugMessengerMgr.h" />
@@ -177,6 +177,7 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
+
 
 
 

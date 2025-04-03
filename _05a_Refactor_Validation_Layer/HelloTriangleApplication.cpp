@@ -43,7 +43,7 @@ void HelloTriangleApplication::initWindow()
     glfwInit();
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-    window = glfwCreateWindow(WIDTH, HEIGHT, "0501_Vulkan_Window", nullptr, nullptr);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "05a_Vulkan_Window", nullptr, nullptr);
 }
 
 void HelloTriangleApplication::createInstance()
@@ -92,3 +92,4 @@ void HelloTriangleApplication::run()
     mainLoop();
     cleanup();
 }
+
