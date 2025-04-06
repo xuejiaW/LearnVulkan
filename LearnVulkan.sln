@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_05_Validation_Layers", "_0
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_05a_Refactor_Validation_Layer", "_05a_Refactor_Validation_Layer\_05a_Refactor_Validation_Layer.vcxproj", "{6AE1A465-3D29-48B7-819D-9854465B20A3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_06_Physical_Devices_Queue_Families", "_06_Physical_Devices_Queue_Families\_06_Physical_Devices_Queue_Families.vcxproj", "{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -50,5 +52,13 @@ Global
 		{6AE1A465-3D29-48B7-819D-9854465B20A3}.Release|Win32.Build.0 = Release|Win32
 		{6AE1A465-3D29-48B7-819D-9854465B20A3}.Release|x64.ActiveCfg = Release|x64
 		{6AE1A465-3D29-48B7-819D-9854465B20A3}.Release|x64.Build.0 = Release|x64
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Debug|Win32.Build.0 = Debug|Win32
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Debug|x64.ActiveCfg = Debug|x64
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Debug|x64.Build.0 = Debug|x64
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|Win32.ActiveCfg = Release|Win32
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|Win32.Build.0 = Release|Win32
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|x64.ActiveCfg = Release|x64
+		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
