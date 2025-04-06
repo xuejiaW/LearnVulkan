@@ -1,5 +1,4 @@
 ﻿#include "PhysicalDevicesMgr.h"
-
 #include <stdexcept>
 #include <vector>
 

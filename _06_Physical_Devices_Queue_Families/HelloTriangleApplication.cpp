@@ -7,10 +7,10 @@
 #include <stdexcept>
 #include <vector>
 
-#include "DebugMessengerMgr.h"
-#include "ExtensionsMgr.h"
-#include "PhysicalDevicesMgr.h"
-#include "ValidationLayerMgr.h"
+#include "Vulkan/DebugMessengerMgr.h"
+#include "Vulkan/ExtensionsMgr.h"
+#include "Vulkan/PhysicalDevicesMgr.h"
+#include "Vulkan/ValidationLayerMgr.h"
 
 constexpr uint32_t WIDTH = 800;
 constexpr uint32_t HEIGHT = 600;
