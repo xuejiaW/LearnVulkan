@@ -12,6 +12,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_05a_Refactor_Validation_La
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_06_Physical_Devices_Queue_Families", "_06_Physical_Devices_Queue_Families\_06_Physical_Devices_Queue_Families.vcxproj", "{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_07_Logical_Device_Queue", "_07_Logical_Device_Queue\_07_Logical_Device_Queue.vcxproj", "{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -60,5 +62,13 @@ Global
 		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|Win32.Build.0 = Release|Win32
 		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|x64.ActiveCfg = Release|x64
 		{F657864E-E0A2-4CEA-A73A-1278EDF1A76F}.Release|x64.Build.0 = Release|x64
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Debug|Win32.Build.0 = Debug|Win32
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Debug|x64.ActiveCfg = Debug|x64
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Debug|x64.Build.0 = Debug|x64
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Release|Win32.ActiveCfg = Release|Win32
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Release|Win32.Build.0 = Release|Win32
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Release|x64.ActiveCfg = Release|x64
+		{A57C5A1A-7E59-4FF0-AA2A-5E67D60D1653}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
