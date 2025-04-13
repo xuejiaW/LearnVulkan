@@ -18,6 +18,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_08_Window_Surface", "_08_W
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_09_SwapChain", "_09_SwapChain\_09_SwapChain.vcxproj", "{B705CD77-BA73-479C-B544-219F51F610A5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_10_ImageView", "_10_ImageView\_10_ImageView.vcxproj", "{F9C3110E-CBAD-4447-9FB6-42364E0393E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -90,5 +92,13 @@ Global
 		{B705CD77-BA73-479C-B544-219F51F610A5}.Release|Win32.Build.0 = Release|Win32
 		{B705CD77-BA73-479C-B544-219F51F610A5}.Release|x64.ActiveCfg = Release|x64
 		{B705CD77-BA73-479C-B544-219F51F610A5}.Release|x64.Build.0 = Release|x64
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Debug|Win32.Build.0 = Debug|Win32
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Debug|x64.ActiveCfg = Debug|x64
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Debug|x64.Build.0 = Debug|x64
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|Win32.ActiveCfg = Release|Win32
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|Win32.Build.0 = Release|Win32
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|x64.ActiveCfg = Release|x64
+		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
