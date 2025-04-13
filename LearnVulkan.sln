@@ -24,6 +24,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_11_Graphics_Pipeline_Intro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_12_Shader_Modules", "_12_Shader_Modules\_12_Shader_Modules.vcxproj", "{D6E7CEAE-CA0C-4E7E-8C9D-E38B6A9E519C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_13_Fixed_Functions", "_13_Fixed_Functions\_13_Fixed_Functions.vcxproj", "{6858D942-89F0-44D6-AEAE-2A7711059DCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -120,5 +122,13 @@ Global
 		{D6E7CEAE-CA0C-4E7E-8C9D-E38B6A9E519C}.Release|Win32.Build.0 = Release|Win32
 		{D6E7CEAE-CA0C-4E7E-8C9D-E38B6A9E519C}.Release|x64.ActiveCfg = Release|x64
 		{D6E7CEAE-CA0C-4E7E-8C9D-E38B6A9E519C}.Release|x64.Build.0 = Release|x64
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Debug|Win32.Build.0 = Debug|Win32
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Debug|x64.ActiveCfg = Debug|x64
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Debug|x64.Build.0 = Debug|x64
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Release|Win32.ActiveCfg = Release|Win32
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Release|Win32.Build.0 = Release|Win32
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Release|x64.ActiveCfg = Release|x64
+		{6858D942-89F0-44D6-AEAE-2A7711059DCE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
