@@ -20,6 +20,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_09_SwapChain", "_09_SwapCh
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_10_ImageView", "_10_ImageView\_10_ImageView.vcxproj", "{F9C3110E-CBAD-4447-9FB6-42364E0393E9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_11_Graphics_Pipeline_Introduction", "_11_Graphics_Pipeline_Introduction\_11_Graphics_Pipeline_Introduction.vcxproj", "{369024EE-E7AD-4387-A14C-4CF9C4E55344}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -100,5 +102,13 @@ Global
 		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|Win32.Build.0 = Release|Win32
 		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|x64.ActiveCfg = Release|x64
 		{F9C3110E-CBAD-4447-9FB6-42364E0393E9}.Release|x64.Build.0 = Release|x64
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Debug|Win32.ActiveCfg = Debug|Win32
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Debug|Win32.Build.0 = Debug|Win32
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Debug|x64.ActiveCfg = Debug|x64
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Debug|x64.Build.0 = Debug|x64
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Release|Win32.ActiveCfg = Release|Win32
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Release|Win32.Build.0 = Release|Win32
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Release|x64.ActiveCfg = Release|x64
+		{369024EE-E7AD-4387-A14C-4CF9C4E55344}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
