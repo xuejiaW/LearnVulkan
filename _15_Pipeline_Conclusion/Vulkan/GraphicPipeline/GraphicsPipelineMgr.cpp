@@ -6,12 +6,16 @@
 #include "Shaders/ShadersMgr.h"
 #include "../SwapChain/SwapChainMgr.h"
 
+VkPipeline GraphicsPipelineMgr::graphicsPipeline = nullptr;
 VkPipelineLayout GraphicsPipelineMgr::pipelineLayout = nullptr;
 VkRenderPass GraphicsPipelineMgr::renderPass = nullptr;
 
 
 void GraphicsPipelineMgr::createGraphicsPipeline(const std::string& vertFileName, const std::string& fragFileName)
 {
+    createRenderPass();
+    createPipelineLayout();
+
     // Create shader modules
     VkShaderModule vertShaderModule = ShadersMgr::createShaderModule(vertFileName);
     VkShaderModule fragShaderModule = ShadersMgr::createShaderModule(fragFileName);
@@ -29,14 +33,45 @@ void GraphicsPipelineMgr::createGraphicsPipeline(const std::string& vertFileName
     VkPipelineColorBlendStateCreateInfo colorBlending = getColorBlendStateCreateInfo();
     VkPipelineDynamicStateCreateInfo dynamicState = getVKDynamicStateCreateInfo();
 
-    // Pipeline layout
-    VkPipelineLayoutCreateInfo pipelineLayoutInfo = getPipelineLayoutCreateInfo();
-    if (vkCreatePipelineLayout(LogicDevicesMgr::device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
-        throw std::runtime_error("Failed to create pipeline layout!");
+    VkGraphicsPipelineCreateInfo pipelineCreateInfo = {};
+    pipelineCreateInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+    pipelineCreateInfo.stageCount = 2;
+    pipelineCreateInfo.pStages = shaderStages;
+    pipelineCreateInfo.pVertexInputState = &vertexInput;
+    pipelineCreateInfo.pInputAssemblyState = &inputAssembly;
+    pipelineCreateInfo.pViewportState = &viewportState;
+    pipelineCreateInfo.pRasterizationState = &rasterizer;
+    pipelineCreateInfo.pMultisampleState = &multisampling;
+    pipelineCreateInfo.pDepthStencilState = nullptr;
+    pipelineCreateInfo.pColorBlendState = &colorBlending;
+    pipelineCreateInfo.pDynamicState = &dynamicState;
+    pipelineCreateInfo.layout = pipelineLayout;
+    pipelineCreateInfo.subpass = 0;
+    pipelineCreateInfo.renderPass = renderPass;
+    pipelineCreateInfo.basePipelineHandle = VK_NULL_HANDLE;
+    pipelineCreateInfo.basePipelineIndex = -1;
+
+    if (vkCreateGraphicsPipelines(LogicDevicesMgr::device, VK_NULL_HANDLE, 1, &pipelineCreateInfo, nullptr, &graphicsPipeline) != VK_SUCCESS)
+        throw std::runtime_error("failed to create graphics pipeline");
 
     // Clean up shader modules
     ShadersMgr::destroyShaderModule(vertShaderModule);
     ShadersMgr::destroyShaderModule(fragShaderModule);
+}
+
+void GraphicsPipelineMgr::createPipelineLayout()
+{
+    VkPipelineLayoutCreateInfo pipelineLayoutInfo = getPipelineLayoutCreateInfo();
+    if (vkCreatePipelineLayout(LogicDevicesMgr::device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
+        throw std::runtime_error("Failed to create pipeline layout!");
+}
+
+
+void GraphicsPipelineMgr::destroyGraphicsPipeline()
+{
+    vkDestroyPipeline(LogicDevicesMgr::device, graphicsPipeline, nullptr);
+    destroyPipelineLayout();
+    destroyRenderPass();
 }
 
 VkPipelineShaderStageCreateInfo GraphicsPipelineMgr::getShaderStageCreateInfo(VkShaderModule shaderModule, VkShaderStageFlagBits stage)

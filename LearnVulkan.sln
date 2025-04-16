@@ -28,6 +28,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_13_Fixed_Functions", "_13_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_14_Render_passes", "_14_Render_passes\_14_Render_passes.vcxproj", "{7AA2206E-E3C0-48DC-8862-251FE2379043}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_15_Pipeline_Conclusion", "_15_Pipeline_Conclusion\_15_Pipeline_Conclusion.vcxproj", "{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -140,5 +142,13 @@ Global
 		{7AA2206E-E3C0-48DC-8862-251FE2379043}.Release|Win32.Build.0 = Release|Win32
 		{7AA2206E-E3C0-48DC-8862-251FE2379043}.Release|x64.ActiveCfg = Release|x64
 		{7AA2206E-E3C0-48DC-8862-251FE2379043}.Release|x64.Build.0 = Release|x64
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Debug|Win32.Build.0 = Debug|Win32
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Debug|x64.ActiveCfg = Debug|x64
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Debug|x64.Build.0 = Debug|x64
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|Win32.ActiveCfg = Release|Win32
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|Win32.Build.0 = Release|Win32
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|x64.ActiveCfg = Release|x64
+		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal

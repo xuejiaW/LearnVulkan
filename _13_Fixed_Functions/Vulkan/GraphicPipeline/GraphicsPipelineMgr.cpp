@@ -70,7 +70,7 @@ VkPipelineInputAssemblyStateCreateInfo GraphicsPipelineMgr::getInputAssemblyStat
 
 VkPipelineViewportStateCreateInfo GraphicsPipelineMgr::getViewportStateCreateInfo()
 {
-    VkViewport viewport{};
+    static VkViewport viewport{};
     viewport.x = 0.0f;
     viewport.y = 0.0f;
     viewport.width = static_cast<float>(SwapChainMgr::imageExtent.width);
@@ -78,7 +78,7 @@ VkPipelineViewportStateCreateInfo GraphicsPipelineMgr::getViewportStateCreateInf
     viewport.minDepth = 0.0f;
     viewport.maxDepth = 1.0f;
 
-    VkRect2D scissor{};
+    static VkRect2D scissor{};
     scissor.offset = {0, 0};
     scissor.extent = SwapChainMgr::imageExtent;
 
@@ -153,7 +153,7 @@ VkPipelineColorBlendStateCreateInfo GraphicsPipelineMgr::getColorBlendStateCreat
 
 VkPipelineDynamicStateCreateInfo GraphicsPipelineMgr::getVKDynamicStateCreateInfo()
 {
-    VkDynamicState dynamicStates[] = {VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_LINE_WIDTH};
+    static VkDynamicState dynamicStates[] = {VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_LINE_WIDTH};
 
     VkPipelineDynamicStateCreateInfo dynamicState{};
     dynamicState.sType = VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO;
