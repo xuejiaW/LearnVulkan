@@ -30,6 +30,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_14_Render_passes", "_14_Re
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_15_Pipeline_Conclusion", "_15_Pipeline_Conclusion\_15_Pipeline_Conclusion.vcxproj", "{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_16_FrameBuffers", "_16_FrameBuffers\_16_FrameBuffers.vcxproj", "{04E1428B-B6D1-4589-8CF2-F62ABB843B56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -150,5 +152,13 @@ Global
 		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|Win32.Build.0 = Release|Win32
 		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|x64.ActiveCfg = Release|x64
 		{F4CE9D8E-9C9C-4E4F-9B6D-C95896A1BD25}.Release|x64.Build.0 = Release|x64
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Debug|Win32.ActiveCfg = Debug|Win32
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Debug|Win32.Build.0 = Debug|Win32
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Debug|x64.ActiveCfg = Debug|x64
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Debug|x64.Build.0 = Debug|x64
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|Win32.ActiveCfg = Release|Win32
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|Win32.Build.0 = Release|Win32
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|x64.ActiveCfg = Release|x64
+		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
