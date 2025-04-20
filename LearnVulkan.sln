@@ -32,6 +32,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_15_Pipeline_Conclusion", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_16_FrameBuffers", "_16_FrameBuffers\_16_FrameBuffers.vcxproj", "{04E1428B-B6D1-4589-8CF2-F62ABB843B56}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_17_CommandBuffers", "_17_CommandBuffers\_17_CommandBuffers.vcxproj", "{C16948BC-2E7E-41A2-B205-1EF612617D35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -160,5 +162,13 @@ Global
 		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|Win32.Build.0 = Release|Win32
 		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|x64.ActiveCfg = Release|x64
 		{04E1428B-B6D1-4589-8CF2-F62ABB843B56}.Release|x64.Build.0 = Release|x64
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Debug|Win32.Build.0 = Debug|Win32
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Debug|x64.ActiveCfg = Debug|x64
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Debug|x64.Build.0 = Debug|x64
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Release|Win32.ActiveCfg = Release|Win32
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Release|Win32.Build.0 = Release|Win32
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Release|x64.ActiveCfg = Release|x64
+		{C16948BC-2E7E-41A2-B205-1EF612617D35}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
