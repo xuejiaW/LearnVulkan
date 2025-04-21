@@ -125,7 +125,7 @@ VkPipelineMultisampleStateCreateInfo GraphicsPipelineMgr::getMultisamplingStateC
 
 VkPipelineColorBlendStateCreateInfo GraphicsPipelineMgr::getColorBlendStateCreateInfo()
 {
-    VkPipelineColorBlendAttachmentState colorBlendAttachment{};
+    static VkPipelineColorBlendAttachmentState colorBlendAttachment{};
     colorBlendAttachment.colorWriteMask = VK_COLOR_COMPONENT_R_BIT |
                                           VK_COLOR_COMPONENT_G_BIT |
                                           VK_COLOR_COMPONENT_B_BIT |

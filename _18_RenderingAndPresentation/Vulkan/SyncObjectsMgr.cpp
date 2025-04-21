@@ -24,3 +24,10 @@ void SyncObjectsMgr::createSyncObjects()
         throw std::runtime_error("failed to create sync objects for a frame");
     }
 }
+
+void SyncObjectsMgr::destroySyncObjects()
+{
+    vkDestroySemaphore(LogicDevicesMgr::device, imageAvailableSemaphore, nullptr);
+    vkDestroySemaphore(LogicDevicesMgr::device, renderFinishedSemaphore, nullptr);
+    vkDestroyFence(LogicDevicesMgr::device, inFlightFence, nullptr);
+}

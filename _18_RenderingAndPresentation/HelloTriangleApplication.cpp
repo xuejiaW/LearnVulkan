@@ -4,7 +4,6 @@
 
 #include <GLFW/glfw3.h>
 
-#include <iostream>
 #include <stdexcept>
 #include <vector>
 
@@ -57,10 +56,14 @@ void HelloTriangleApplication::mainLoop()
         glfwPollEvents();
         drawFrame();
     }
+
+    vkDeviceWaitIdle(LogicDevicesMgr::device);
 }
 
 void HelloTriangleApplication::cleanup()
 {
+    SyncObjectsMgr::destroySyncObjects();
+    CommandBuffersMgr::destroyCommandPool();
     FrameBuffersMgr::destroyFramebuffers();
     GraphicsPipelineMgr::destroyGraphicsPipeline();
     SwapChainMgr::destroyImageViews();
@@ -139,7 +142,7 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
     renderPassInfo.renderArea.offset = {0, 0};
     renderPassInfo.renderArea.extent = SwapChainMgr::imageExtent;
 
-    VkClearValue clearValue{{{1.0f, 0.0f, 0.0f, 1.0f}}};
+    VkClearValue clearValue{{{0.0f, 0.0f, 0.0f, 1.0f}}};
     renderPassInfo.clearValueCount = 1;
     renderPassInfo.pClearValues = &clearValue;
     vkCmdBeginRenderPass(commandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
