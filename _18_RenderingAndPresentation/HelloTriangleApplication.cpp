@@ -193,7 +193,6 @@ void HelloTriangleApplication::drawFrame()
     submitInfo.waitSemaphoreCount = 1;
     submitInfo.pWaitSemaphores = waitSemaphores;
     submitInfo.pWaitDstStageMask = waitStages;
-
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = &CommandBuffersMgr::commandBuffer;
 
