@@ -10,7 +10,7 @@
 #include "Vulkan/DebugMessengerMgr.h"
 #include "Vulkan/ExtensionsMgr.h"
 #include "Vulkan/FrameBuffersMgr.h"
-#include "Vulkan/LogicDevicesMgr.h"
+#include "Vulkan/LogicalDevicesMgr.h"
 #include "Vulkan/PhysicalDevicesMgr.h"
 #include "Vulkan/SurfaceMgr.h"
 #include "Vulkan/SyncObjectsMgr.h"
@@ -39,7 +39,7 @@ void HelloTriangleApplication::initVulkan()
     DebugMessengerMgr::setupDebugMessenger(instance);
     SurfaceMgr::createSurface(instance, window);
     PhysicalDevicesMgr::pickPhysicalDevice(instance);
-    LogicDevicesMgr::createLogicalDevice();
+    LogicalDevicesMgr::createLogicalDevice();
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
@@ -57,7 +57,7 @@ void HelloTriangleApplication::mainLoop()
         drawFrame();
     }
 
-    vkDeviceWaitIdle(LogicDevicesMgr::device);
+    vkDeviceWaitIdle(LogicalDevicesMgr::device);
 }
 
 void HelloTriangleApplication::cleanup()
@@ -68,7 +68,7 @@ void HelloTriangleApplication::cleanup()
     GraphicsPipelineMgr::destroyGraphicsPipeline();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
-    LogicDevicesMgr::destroyLogicalDevice();
+    LogicalDevicesMgr::destroyLogicalDevice();
     if (ValidationLayerMgr::enableValidationLayers)
         DebugMessengerMgr::destroyDebugUtilsMessengerExt(instance, nullptr);
 
@@ -175,11 +175,11 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
 
 void HelloTriangleApplication::drawFrame()
 {
-    vkWaitForFences(LogicDevicesMgr::device, 1, &SyncObjectsMgr::inFlightFence, VK_TRUE, UINT64_MAX);
-    vkResetFences(LogicDevicesMgr::device, 1, &SyncObjectsMgr::inFlightFence);
+    vkWaitForFences(LogicalDevicesMgr::device, 1, &SyncObjectsMgr::inFlightFence, VK_TRUE, UINT64_MAX);
+    vkResetFences(LogicalDevicesMgr::device, 1, &SyncObjectsMgr::inFlightFence);
 
     uint32_t imageIndex = 0;
-    vkAcquireNextImageKHR(LogicDevicesMgr::device, SwapChainMgr::swapChain, UINT64_MAX, SyncObjectsMgr::imageAvailableSemaphore, VK_NULL_HANDLE,
+    vkAcquireNextImageKHR(LogicalDevicesMgr::device, SwapChainMgr::swapChain, UINT64_MAX, SyncObjectsMgr::imageAvailableSemaphore, VK_NULL_HANDLE,
                           &imageIndex);
 
     vkResetCommandBuffer(CommandBuffersMgr::commandBuffer, /*VkCommandBufferResetFlagBits*/ 0);
@@ -200,7 +200,7 @@ void HelloTriangleApplication::drawFrame()
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
 
-    if (vkQueueSubmit(LogicDevicesMgr::graphicsQueue, 1, &submitInfo, SyncObjectsMgr::inFlightFence) != VK_SUCCESS)
+    if (vkQueueSubmit(LogicalDevicesMgr::graphicsQueue, 1, &submitInfo, SyncObjectsMgr::inFlightFence) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to submit draw command buffer!");
     }
@@ -216,5 +216,5 @@ void HelloTriangleApplication::drawFrame()
     presentInfo.pSwapchains = swapChains;
     presentInfo.pImageIndices = &imageIndex;
 
-    vkQueuePresentKHR(LogicDevicesMgr::graphicsQueue, &presentInfo);
+    vkQueuePresentKHR(LogicalDevicesMgr::graphicsQueue, &presentInfo);
 }

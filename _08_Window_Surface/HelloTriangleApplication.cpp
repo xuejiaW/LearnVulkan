@@ -9,7 +9,7 @@
 
 #include "Vulkan/DebugMessengerMgr.h"
 #include "Vulkan/ExtensionsMgr.h"
-#include "Vulkan/LogicDevicesMgr.h"
+#include "Vulkan/LogicalDevicesMgr.h"
 #include "Vulkan/PhysicalDevicesMgr.h"
 #include "Vulkan/SurfaceMgr.h"
 #include "Vulkan/ValidationLayerMgr.h"
@@ -32,7 +32,7 @@ void HelloTriangleApplication::initVulkan()
     DebugMessengerMgr::setupDebugMessenger(instance);
     SurfaceMgr::createSurface(instance, window);
     PhysicalDevicesMgr::pickPhysicalDevice(instance);
-    LogicDevicesMgr::createLogicalDevice();
+    LogicalDevicesMgr::createLogicalDevice();
 }
 
 void HelloTriangleApplication::mainLoop()
@@ -45,7 +45,7 @@ void HelloTriangleApplication::mainLoop()
 
 void HelloTriangleApplication::cleanup()
 {
-    LogicDevicesMgr::destroyLogicalDevice();
+    LogicalDevicesMgr::destroyLogicalDevice();
     if (ValidationLayerMgr::enableValidationLayers)
         DebugMessengerMgr::destroyDebugUtilsMessengerExt(instance, nullptr);
 

@@ -10,7 +10,7 @@
 #include "Vulkan/DebugMessengerMgr.h"
 #include "Vulkan/ExtensionsMgr.h"
 #include "Vulkan/FrameBuffersMgr.h"
-#include "Vulkan/LogicDevicesMgr.h"
+#include "Vulkan/LogicalDevicesMgr.h"
 #include "Vulkan/PhysicalDevicesMgr.h"
 #include "Vulkan/SurfaceMgr.h"
 #include "Vulkan/ValidationLayerMgr.h"
@@ -37,7 +37,7 @@ void HelloTriangleApplication::initVulkan()
     DebugMessengerMgr::setupDebugMessenger(instance);
     SurfaceMgr::createSurface(instance, window);
     PhysicalDevicesMgr::pickPhysicalDevice(instance);
-    LogicDevicesMgr::createLogicalDevice();
+    LogicalDevicesMgr::createLogicalDevice();
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
@@ -58,7 +58,7 @@ void HelloTriangleApplication::cleanup()
     GraphicsPipelineMgr::destroyGraphicsPipeline();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
-    LogicDevicesMgr::destroyLogicalDevice();
+    LogicalDevicesMgr::destroyLogicalDevice();
     if (ValidationLayerMgr::enableValidationLayers)
         DebugMessengerMgr::destroyDebugUtilsMessengerExt(instance, nullptr);
 

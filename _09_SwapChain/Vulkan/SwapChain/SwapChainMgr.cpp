@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "../LogicDevicesMgr.h"
+#include "../LogicalDevicesMgr.h"
 #include "../PhysicalDevicesMgr.h"
 #include "../SurfaceMgr.h"
 #include "../QueueFamily/QueueFamilyIndices.h"
@@ -121,19 +121,19 @@ void SwapChainMgr::createSwapChain()
     createInfo.clipped = VK_TRUE;
     createInfo.oldSwapchain = VK_NULL_HANDLE;
 
-    if (vkCreateSwapchainKHR(LogicDevicesMgr::device, &createInfo, nullptr, &swapChain) != VK_SUCCESS)
+    if (vkCreateSwapchainKHR(LogicalDevicesMgr::device, &createInfo, nullptr, &swapChain) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create swap chain!");
     }
 
-    vkGetSwapchainImagesKHR(LogicDevicesMgr::device, swapChain, &imageCount, nullptr);
+    vkGetSwapchainImagesKHR(LogicalDevicesMgr::device, swapChain, &imageCount, nullptr);
     images.resize(imageCount);
-    vkGetSwapchainImagesKHR(LogicDevicesMgr::device, swapChain, &imageCount, images.data());
+    vkGetSwapchainImagesKHR(LogicalDevicesMgr::device, swapChain, &imageCount, images.data());
     imageFormat = surfaceFormat.format;
     imageExtent = extent;
 }
 
 void SwapChainMgr::destroySwapChain()
 {
-    vkDestroySwapchainKHR(LogicDevicesMgr::device, swapChain, nullptr);
+    vkDestroySwapchainKHR(LogicalDevicesMgr::device, swapChain, nullptr);
 }

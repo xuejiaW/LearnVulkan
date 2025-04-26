@@ -1,4 +1,4 @@
-#include "LogicDevicesMgr.h"
+#include "LogicalDevicesMgr.h"
 
 #include <set>
 #include <stdexcept>
@@ -7,11 +7,11 @@
 #include "QueueFamily/QueueFamilyIndices.h"
 #include "QueueFamily/QueueFamilyMgr.h"
 
-VkDevice LogicDevicesMgr::device = VK_NULL_HANDLE;
-VkQueue LogicDevicesMgr::graphicsQueue = VK_NULL_HANDLE;
-VkQueue LogicDevicesMgr::presentQueue = VK_NULL_HANDLE;
+VkDevice LogicalDevicesMgr::device = VK_NULL_HANDLE;
+VkQueue LogicalDevicesMgr::graphicsQueue = VK_NULL_HANDLE;
+VkQueue LogicalDevicesMgr::presentQueue = VK_NULL_HANDLE;
 
-void LogicDevicesMgr::createLogicalDevice()
+void LogicalDevicesMgr::createLogicalDevice()
 {
     constexpr float queuePriority = 1.0f;
     const QueueFamilyIndices indices = QueueFamilyMgr::findQueueFamilies(PhysicalDevicesMgr::physicalDevice);
@@ -35,8 +35,7 @@ void LogicDevicesMgr::createLogicalDevice()
     createInfo.pQueueCreateInfos = queueCreateInfos.data();
     createInfo.queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size());
     createInfo.pEnabledFeatures = &deviceFeatures;
-    createInfo.enabledExtensionCount = static_cast<uint32_t>(PhysicalDevicesMgr::deviceExtensions.size());
-    createInfo.ppEnabledExtensionNames = PhysicalDevicesMgr::deviceExtensions.data();
+    createInfo.enabledExtensionCount = 0;
 
     if (vkCreateDevice(PhysicalDevicesMgr::physicalDevice, &createInfo, nullptr, &device) != VK_SUCCESS)
     {
@@ -47,13 +46,7 @@ void LogicDevicesMgr::createLogicalDevice()
     vkGetDeviceQueue(device, indices.presentFamily.value(), 0, &presentQueue);
 }
 
-void LogicDevicesMgr::destroyLogicalDevice()
+void LogicalDevicesMgr::destroyLogicalDevice()
 {
     vkDestroyDevice(device, nullptr);
 }
-
-
-
-
-
-

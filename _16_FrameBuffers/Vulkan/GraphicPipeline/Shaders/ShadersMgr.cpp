@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "../../LogicDevicesMgr.h"
+#include "../../LogicalDevicesMgr.h"
 
 std::vector<char> ShadersMgr::readFile(const std::string& fileName)
 {
@@ -29,7 +29,7 @@ VkShaderModule ShadersMgr::createShaderModule(const std::string& fileName)
     createInfo.pCode = reinterpret_cast<const uint32_t*>(code.data());
 
     VkShaderModule shaderModule;
-    if (vkCreateShaderModule(LogicDevicesMgr::device, &createInfo, nullptr, &shaderModule) != VK_SUCCESS)
+    if (vkCreateShaderModule(LogicalDevicesMgr::device, &createInfo, nullptr, &shaderModule) != VK_SUCCESS)
         throw std::runtime_error("Failed to create shader module!");
 
     return shaderModule;
@@ -37,7 +37,7 @@ VkShaderModule ShadersMgr::createShaderModule(const std::string& fileName)
 
 void ShadersMgr::destroyShaderModule(VkShaderModule shaderModule)
 {
-    vkDestroyShaderModule(LogicDevicesMgr::device, shaderModule, nullptr);
+    vkDestroyShaderModule(LogicalDevicesMgr::device, shaderModule, nullptr);
 }
 
 

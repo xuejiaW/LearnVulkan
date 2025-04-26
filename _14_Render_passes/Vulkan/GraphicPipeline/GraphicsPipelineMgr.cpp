@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "../LogicDevicesMgr.h"
+#include "../LogicalDevicesMgr.h"
 #include "Shaders/ShadersMgr.h"
 #include "../SwapChain/SwapChainMgr.h"
 
@@ -31,7 +31,7 @@ void GraphicsPipelineMgr::createGraphicsPipeline(const std::string& vertFileName
 
     // Pipeline layout
     VkPipelineLayoutCreateInfo pipelineLayoutInfo = getPipelineLayoutCreateInfo();
-    if (vkCreatePipelineLayout(LogicDevicesMgr::device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
+    if (vkCreatePipelineLayout(LogicalDevicesMgr::device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
         throw std::runtime_error("Failed to create pipeline layout!");
 
     // Clean up shader modules
@@ -176,7 +176,7 @@ VkPipelineLayoutCreateInfo GraphicsPipelineMgr::getPipelineLayoutCreateInfo()
 
 void GraphicsPipelineMgr::destroyPipelineLayout()
 {
-    vkDestroyPipelineLayout(LogicDevicesMgr::device, pipelineLayout, nullptr);
+    vkDestroyPipelineLayout(LogicalDevicesMgr::device, pipelineLayout, nullptr);
 }
 
 
@@ -208,7 +208,7 @@ void GraphicsPipelineMgr::createRenderPass()
     renderPassInfo.subpassCount = 1;
     renderPassInfo.pSubpasses = &subpass;
 
-    if (vkCreateRenderPass(LogicDevicesMgr::device, &renderPassInfo, nullptr, &renderPass) != VK_SUCCESS)
+    if (vkCreateRenderPass(LogicalDevicesMgr::device, &renderPassInfo, nullptr, &renderPass) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create render pass!");
     }
@@ -217,5 +217,5 @@ void GraphicsPipelineMgr::createRenderPass()
 
 void GraphicsPipelineMgr::destroyRenderPass()
 {
-    vkDestroyRenderPass(LogicDevicesMgr::device, renderPass, nullptr);
+    vkDestroyRenderPass(LogicalDevicesMgr::device, renderPass, nullptr);
 }

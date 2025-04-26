@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "LogicDevicesMgr.h"
+#include "LogicalDevicesMgr.h"
 #include "GraphicPipeline/GraphicsPipelineMgr.h"
 #include "SwapChain/SwapChainMgr.h"
 
@@ -25,7 +25,7 @@ void FrameBuffersMgr::createFramebuffers()
         framebufferInfo.height = SwapChainMgr::imageExtent.height;
         framebufferInfo.layers = 1;
 
-        if (vkCreateFramebuffer(LogicDevicesMgr::device, &framebufferInfo, nullptr, &swapChainFramebuffers[i]) != VK_SUCCESS)
+        if (vkCreateFramebuffer(LogicalDevicesMgr::device, &framebufferInfo, nullptr, &swapChainFramebuffers[i]) != VK_SUCCESS)
         {
             throw std::runtime_error("failed to create framebuffer");
         }
@@ -36,7 +36,7 @@ void FrameBuffersMgr::destroyFramebuffers()
 {
     for (auto framebuffer : swapChainFramebuffers)
     {
-        vkDestroyFramebuffer(LogicDevicesMgr::device, framebuffer, nullptr);
+        vkDestroyFramebuffer(LogicalDevicesMgr::device, framebuffer, nullptr);
     }
 }
 

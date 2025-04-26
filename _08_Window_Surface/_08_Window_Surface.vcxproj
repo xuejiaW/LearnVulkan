@@ -78,6 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VULKAN_SDK)\Include;$(SolutionDir)include;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -312,7 +313,7 @@
       <AdditionalIncludeDirectories>C:\VulkanSDK\1.4.304.1\Include;D:\Github\LearnVulkan\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="Vulkan\LogicDevicesMgr.cpp" />
+    <ClCompile Include="Vulkan\LogicalDevicesMgr.cpp" />
     <ClCompile Include="Vulkan\PhysicalDevicesMgr.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -472,7 +473,7 @@
     <ClInclude Include="HelloTriangleApplication.h" />
     <ClInclude Include="Vulkan\DebugMessengerMgr.h" />
     <ClInclude Include="Vulkan\ExtensionsMgr.h" />
-    <ClInclude Include="Vulkan\LogicDevicesMgr.h" />
+    <ClInclude Include="Vulkan\LogicalDevicesMgr.h" />
     <ClInclude Include="Vulkan\PhysicalDevicesMgr.h" />
     <ClInclude Include="Vulkan\SurfaceMgr.h" />
     <ClInclude Include="Vulkan\ValidationLayerMgr.h" />

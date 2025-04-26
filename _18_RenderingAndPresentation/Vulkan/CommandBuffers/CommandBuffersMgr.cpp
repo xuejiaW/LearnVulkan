@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "../LogicDevicesMgr.h"
+#include "../LogicalDevicesMgr.h"
 #include "../QueueFamily/QueueFamilyMgr.h"
 #include "../QueueFamily/QueueFamilyIndices.h"
 
@@ -17,7 +17,7 @@ void CommandBuffersMgr::createCommandPool()
     poolInfo.queueFamilyIndex = indices.graphicsFamily.value();
     poolInfo.flags = VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT;
 
-    if (vkCreateCommandPool(LogicDevicesMgr::device, &poolInfo, nullptr, &commandPool) != VK_SUCCESS)
+    if (vkCreateCommandPool(LogicalDevicesMgr::device, &poolInfo, nullptr, &commandPool) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create command pool!");
     }
@@ -25,7 +25,7 @@ void CommandBuffersMgr::createCommandPool()
 
 void CommandBuffersMgr::destroyCommandPool()
 {
-    vkDestroyCommandPool(LogicDevicesMgr::device, commandPool, nullptr);
+    vkDestroyCommandPool(LogicalDevicesMgr::device, commandPool, nullptr);
 }
 
 void CommandBuffersMgr::createCommandBuffer()
@@ -36,7 +36,7 @@ void CommandBuffersMgr::createCommandBuffer()
     allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
     allocInfo.commandBufferCount = 1;
 
-    if (vkAllocateCommandBuffers(LogicDevicesMgr::device, &allocInfo, &commandBuffer) != VK_SUCCESS)
+    if (vkAllocateCommandBuffers(LogicalDevicesMgr::device, &allocInfo, &commandBuffer) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to allocate command buffer!");
     }

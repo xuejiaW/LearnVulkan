@@ -1,7 +1,7 @@
 #pragma once
 #include <vulkan/vulkan_core.h>
 
-class LogicDevicesMgr
+class LogicalDevicesMgr
 {
 public:
     void static createLogicalDevice();
@@ -10,4 +10,12 @@ public:
     static VkQueue graphicsQueue;
     static VkQueue presentQueue;
 };
+
+
+
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-﻿#include "LogicDevicesMgr.h"
+﻿#include "LogicalDevicesMgr.h"
 
 #include <stdexcept>
 
@@ -6,10 +6,10 @@
 #include "QueueFamily/QueueFamilyIndices.h"
 #include "QueueFamily/QueueFamilyMgr.h"
 
-VkDevice LogicDevicesMgr::device = VK_NULL_HANDLE;
-VkQueue LogicDevicesMgr::graphicsQueue = VK_NULL_HANDLE;
+VkDevice LogicalDevicesMgr::device = VK_NULL_HANDLE;
+VkQueue LogicalDevicesMgr::graphicsQueue = VK_NULL_HANDLE;
 
-void LogicDevicesMgr::createLogicalDevice()
+void LogicalDevicesMgr::createLogicalDevice()
 {
     constexpr float queuePriority = 1.0f;
     const QueueFamilyIndices indices = QueueFamilyMgr::findQueueFamilies(PhysicalDevicesMgr::physicalDevice);
@@ -35,7 +35,7 @@ void LogicDevicesMgr::createLogicalDevice()
     vkGetDeviceQueue(device, indices.graphicsFamily.value(), 0, &graphicsQueue);
 }
 
-void LogicDevicesMgr::destroyLogicalDevice()
+void LogicalDevicesMgr::destroyLogicalDevice()
 {
     vkDestroyDevice(device, nullptr);
 }
