@@ -40,6 +40,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_19_FramesInFlight", "_19_F
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_20_SwapChainRecreation", "_20_SwapChainRecreation\_20_SwapChainRecreation.vcxproj", "{D26EA256-4D74-468B-9910-C33AA416CDAE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_21_VertexInputDescriptionAndBufferCreation", "_21_VertexInputDescriptionAndBufferCreation\_21_VertexInputDescriptionAndBufferCreation.vcxproj", "{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -200,5 +202,13 @@ Global
 		{D26EA256-4D74-468B-9910-C33AA416CDAE}.Release|Win32.Build.0 = Release|Win32
 		{D26EA256-4D74-468B-9910-C33AA416CDAE}.Release|x64.ActiveCfg = Release|x64
 		{D26EA256-4D74-468B-9910-C33AA416CDAE}.Release|x64.Build.0 = Release|x64
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Debug|Win32.Build.0 = Debug|Win32
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Debug|x64.ActiveCfg = Debug|x64
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Debug|x64.Build.0 = Debug|x64
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|Win32.ActiveCfg = Release|Win32
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|Win32.Build.0 = Release|Win32
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|x64.ActiveCfg = Release|x64
+		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
