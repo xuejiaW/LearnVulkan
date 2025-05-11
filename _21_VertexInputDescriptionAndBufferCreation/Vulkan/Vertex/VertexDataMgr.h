@@ -6,12 +6,12 @@
 class VertexDataMgr
 {
 public:
+    static std::vector<Vertex> vertices;
     static void createVertexBuffer();
     static void destroyVertexBuffer();
     static VkBuffer vertexBuffer;
     static VkDeviceMemory vertexBufferMemory;
 
 private:
-    static std::vector<Vertex> vertices;
     static uint32_t findSuitableMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
 };
