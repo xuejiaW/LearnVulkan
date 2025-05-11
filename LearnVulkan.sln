@@ -42,6 +42,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_20_SwapChainRecreation", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_21_VertexInputDescriptionAndBufferCreation", "_21_VertexInputDescriptionAndBufferCreation\_21_VertexInputDescriptionAndBufferCreation.vcxproj", "{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_22_StagingBuffer", "_22_StagingBuffer\_22_StagingBuffer.vcxproj", "{065705F5-CA48-43BC-BA2D-542649D3EEC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -210,5 +212,13 @@ Global
 		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|Win32.Build.0 = Release|Win32
 		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|x64.ActiveCfg = Release|x64
 		{8D6CC3B0-106F-4A53-B797-4D607BC2FFAE}.Release|x64.Build.0 = Release|x64
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Debug|Win32.Build.0 = Debug|Win32
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Debug|x64.ActiveCfg = Debug|x64
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Debug|x64.Build.0 = Debug|x64
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|Win32.ActiveCfg = Release|Win32
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|Win32.Build.0 = Release|Win32
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|x64.ActiveCfg = Release|x64
+		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
