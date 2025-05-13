@@ -44,6 +44,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_21_VertexInputDescriptionA
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_22_StagingBuffer", "_22_StagingBuffer\_22_StagingBuffer.vcxproj", "{065705F5-CA48-43BC-BA2D-542649D3EEC5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_23_IndexBuffer", "_23_IndexBuffer\_23_IndexBuffer.vcxproj", "{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -220,5 +222,13 @@ Global
 		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|Win32.Build.0 = Release|Win32
 		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|x64.ActiveCfg = Release|x64
 		{065705F5-CA48-43BC-BA2D-542649D3EEC5}.Release|x64.Build.0 = Release|x64
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Debug|Win32.Build.0 = Debug|Win32
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Debug|x64.ActiveCfg = Debug|x64
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Debug|x64.Build.0 = Debug|x64
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|Win32.ActiveCfg = Release|Win32
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|Win32.Build.0 = Release|Win32
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|x64.ActiveCfg = Release|x64
+		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
