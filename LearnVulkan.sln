@@ -46,6 +46,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_22_StagingBuffer", "_22_St
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_23_IndexBuffer", "_23_IndexBuffer\_23_IndexBuffer.vcxproj", "{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_24_UniformBuffer", "_24_UniformBuffer\_24_UniformBuffer.vcxproj", "{340A1F0C-6481-4877-8144-15E277EFE2F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -230,5 +232,13 @@ Global
 		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|Win32.Build.0 = Release|Win32
 		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|x64.ActiveCfg = Release|x64
 		{590DCC6F-59CA-4ACB-AB71-25B8B04FD7BB}.Release|x64.Build.0 = Release|x64
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Debug|Win32.Build.0 = Debug|Win32
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Debug|x64.ActiveCfg = Debug|x64
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Debug|x64.Build.0 = Debug|x64
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Release|Win32.ActiveCfg = Release|Win32
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Release|Win32.Build.0 = Release|Win32
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Release|x64.ActiveCfg = Release|x64
+		{340A1F0C-6481-4877-8144-15E277EFE2F2}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
