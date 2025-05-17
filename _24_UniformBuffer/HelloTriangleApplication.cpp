@@ -18,6 +18,7 @@
 #include "Vulkan/CommandBuffers/CommandBuffersMgr.h"
 #include "Vulkan/GraphicPipeline/GraphicsPipelineMgr.h"
 #include "Vulkan/SwapChain/SwapChainMgr.h"
+#include "Vulkan/UniformBuffer/UniformBufferMgr.h"
 #include "Vulkan/Vertex/VertexDataMgr.h"
 
 constexpr uint32_t WIDTH = 800;
@@ -45,11 +46,15 @@ void HelloTriangleApplication::initVulkan()
     LogicalDevicesMgr::createLogicalDevice();
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
+    UniformBufferMgr::createDescriptorSetLayout();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
     CommandBuffersMgr::createCommandPool();
     VertexDataMgr::createVertexBuffer();
     VertexDataMgr::createIndexBuffer();
+    UniformBufferMgr::createUniformBuffers();
+    UniformBufferMgr::createDescriptorPool();
+    UniformBufferMgr::createDescriptorSets();
     CommandBuffersMgr::createCommandBuffers();
     SyncObjectsMgr::createSyncObjects();
 }
@@ -69,10 +74,13 @@ void HelloTriangleApplication::cleanup()
 {
     SyncObjectsMgr::destroySyncObjects();
     CommandBuffersMgr::destroyCommandPool();
+    UniformBufferMgr::destroyDescriptorPool();
+    UniformBufferMgr::destroyUniformBuffers();
     VertexDataMgr::destroyIndexBuffer();
     VertexDataMgr::destroyVertexBuffer();
     FrameBuffersMgr::destroyFramebuffers();
     GraphicsPipelineMgr::destroyGraphicsPipeline();
+    UniformBufferMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
     LogicalDevicesMgr::destroyLogicalDevice();
@@ -176,11 +184,15 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
 
     vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
 
-    VkBuffer vertexBuffers[] = {VertexDataMgr::vertexBuffer};
-    VkDeviceSize offsets[] = {0};
+    const VkBuffer vertexBuffers[] = {VertexDataMgr::vertexBuffer};
+    constexpr VkDeviceSize offsets[] = {0};
     vkCmdBindVertexBuffers(commandBuffer, 0, 1, vertexBuffers, offsets);
     vkCmdBindIndexBuffer(commandBuffer, VertexDataMgr::indexBuffer, 0, VK_INDEX_TYPE_UINT16);
 
+    vkCmdBindDescriptorSets(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS,
+                        GraphicsPipelineMgr::pipelineLayout, 0, 1,
+                        &UniformBufferMgr::descriptorSets[currentFrame], 0, nullptr);
+    
     vkCmdDrawIndexed(commandBuffer,
                      static_cast<uint32_t>(VertexDataMgr::indices.size()), 1, 0, 0, 0);
 
@@ -215,18 +227,20 @@ void HelloTriangleApplication::drawFrame()
     vkResetCommandBuffer(CommandBuffersMgr::commandBuffers[currentFrame], /*VkCommandBufferResetFlagBits*/ 0);
     recordCommandBuffer(CommandBuffersMgr::commandBuffers[currentFrame], imageIndex);
 
+    UniformBufferMgr::updateUniformBuffer(currentFrame);
+
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
 
-    VkSemaphore waitSemaphores[] = {SyncObjectsMgr::imageAvailableSemaphores[currentFrame]};
-    VkPipelineStageFlags waitStages[] = {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT};
+    const VkSemaphore waitSemaphores[] = {SyncObjectsMgr::imageAvailableSemaphores[currentFrame]};
+    constexpr VkPipelineStageFlags waitStages[] = {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT};
     submitInfo.waitSemaphoreCount = 1;
     submitInfo.pWaitSemaphores = waitSemaphores;
     submitInfo.pWaitDstStageMask = waitStages;
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = &CommandBuffersMgr::commandBuffers[currentFrame];
 
-    VkSemaphore signalSemaphores[] = {SyncObjectsMgr::renderFinishedSemaphores[currentFrame]};
+    const VkSemaphore signalSemaphores[] = {SyncObjectsMgr::renderFinishedSemaphores[currentFrame]};
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
 
@@ -241,7 +255,7 @@ void HelloTriangleApplication::drawFrame()
     presentInfo.waitSemaphoreCount = 1;
     presentInfo.pWaitSemaphores = signalSemaphores;
 
-    VkSwapchainKHR swapChains[] = {SwapChainMgr::swapChain};
+    const VkSwapchainKHR swapChains[] = {SwapChainMgr::swapChain};
     presentInfo.swapchainCount = 1;
     presentInfo.pSwapchains = swapChains;
     presentInfo.pImageIndices = &imageIndex;

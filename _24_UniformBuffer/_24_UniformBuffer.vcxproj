@@ -472,6 +472,8 @@
     <ClCompile Include="Vulkan\SurfaceMgr.cpp" />
     <ClCompile Include="Vulkan\SwapChain\SwapChainMgr.cpp" />
     <ClCompile Include="Vulkan\SyncObjectsMgr.cpp" />
+    <ClCompile Include="Vulkan\UniformBuffer\UniformBufferMgr.cpp" />
+    <ClCompile Include="Vulkan\Utils\BufferHelper.cpp" />
     <ClCompile Include="Vulkan\ValidationLayerMgr.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -565,6 +567,9 @@
     <ClInclude Include="Vulkan\SwapChain\SwapChainMgr.h" />
     <ClInclude Include="Vulkan\SwapChain\SwapChainSupportDetails.h" />
     <ClInclude Include="Vulkan\SyncObjectsMgr.h" />
+    <ClInclude Include="Vulkan\UniformBuffer\UniformBufferMgr.h" />
+    <ClInclude Include="Vulkan\UniformBuffer\UniformBufferObject.h" />
+    <ClInclude Include="Vulkan\Utils\BufferHelper.h" />
     <ClInclude Include="Vulkan\ValidationLayerMgr.h" />
     <ClInclude Include="Vulkan\Vertex\Vertex.h" />
     <ClInclude Include="Vulkan\Vertex\VertexDataMgr.h" />

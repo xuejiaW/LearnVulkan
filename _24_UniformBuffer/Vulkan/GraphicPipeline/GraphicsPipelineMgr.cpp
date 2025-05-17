@@ -5,6 +5,7 @@
 #include "../LogicalDevicesMgr.h"
 #include "Shaders/ShadersMgr.h"
 #include "../SwapChain/SwapChainMgr.h"
+#include "../UniformBuffer/UniformBufferMgr.h"
 #include "../Vertex/Vertex.h"
 
 VkPipeline GraphicsPipelineMgr::graphicsPipeline = nullptr;
@@ -34,8 +35,7 @@ void GraphicsPipelineMgr::createGraphicsPipeline(const std::string& vertFileName
     VkPipelineColorBlendStateCreateInfo colorBlending = getColorBlendStateCreateInfo();
     VkPipelineDynamicStateCreateInfo dynamicState = getVKDynamicStateCreateInfo();
 
-    VkGraphicsPipelineCreateInfo pipelineCreateInfo = {};
-    pipelineCreateInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+    VkGraphicsPipelineCreateInfo pipelineCreateInfo = {VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO};
     pipelineCreateInfo.stageCount = 2;
     pipelineCreateInfo.pStages = shaderStages;
     pipelineCreateInfo.pVertexInputState = &vertexInput;
@@ -62,7 +62,7 @@ void GraphicsPipelineMgr::createGraphicsPipeline(const std::string& vertFileName
 
 void GraphicsPipelineMgr::createPipelineLayout()
 {
-    VkPipelineLayoutCreateInfo pipelineLayoutInfo = getPipelineLayoutCreateInfo();
+    const VkPipelineLayoutCreateInfo pipelineLayoutInfo = getPipelineLayoutCreateInfo();
     if (vkCreatePipelineLayout(LogicalDevicesMgr::device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
         throw std::runtime_error("Failed to create pipeline layout!");
 }
@@ -140,7 +140,7 @@ VkPipelineRasterizationStateCreateInfo GraphicsPipelineMgr::getRasterizationStat
     rasterizer.polygonMode = VK_POLYGON_MODE_FILL;
     rasterizer.lineWidth = 1.0f;
     rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
-    rasterizer.frontFace = VK_FRONT_FACE_CLOCKWISE;
+    rasterizer.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE;
     rasterizer.depthBiasEnable = VK_FALSE;
     rasterizer.depthBiasConstantFactor = 0.0f;
     rasterizer.depthBiasClamp = 0.0f;
@@ -205,8 +205,8 @@ VkPipelineLayoutCreateInfo GraphicsPipelineMgr::getPipelineLayoutCreateInfo()
 {
     VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
     pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-    pipelineLayoutInfo.setLayoutCount = 0;
-    pipelineLayoutInfo.pSetLayouts = nullptr;
+    pipelineLayoutInfo.setLayoutCount = 1;
+    pipelineLayoutInfo.pSetLayouts = &UniformBufferMgr::descriptorSetLayout;
     pipelineLayoutInfo.pushConstantRangeCount = 0;
     pipelineLayoutInfo.pPushConstantRanges = nullptr;
     return pipelineLayoutInfo;
@@ -267,6 +267,3 @@ void GraphicsPipelineMgr::destroyRenderPass()
 {
     vkDestroyRenderPass(LogicalDevicesMgr::device, renderPass, nullptr);
 }
-
-
-
