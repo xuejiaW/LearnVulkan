@@ -50,6 +50,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_24_UniformBuffer", "_24_Un
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_25_Images", "_25_Images\_25_Images.vcxproj", "{075DE11E-80B6-4149-B12D-343543C6B4AD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_26_ImageViewAndSampler", "_26_ImageViewAndSampler\_26_ImageViewAndSampler.vcxproj", "{349CC5C7-EB49-412A-93D4-80CCF5F573A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -250,5 +252,13 @@ Global
 		{075DE11E-80B6-4149-B12D-343543C6B4AD}.Release|Win32.Build.0 = Release|Win32
 		{075DE11E-80B6-4149-B12D-343543C6B4AD}.Release|x64.ActiveCfg = Release|x64
 		{075DE11E-80B6-4149-B12D-343543C6B4AD}.Release|x64.Build.0 = Release|x64
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Debug|Win32.Build.0 = Debug|Win32
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Debug|x64.ActiveCfg = Debug|x64
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Debug|x64.Build.0 = Debug|x64
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Release|Win32.ActiveCfg = Release|Win32
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Release|Win32.Build.0 = Release|Win32
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Release|x64.ActiveCfg = Release|x64
+		{349CC5C7-EB49-412A-93D4-80CCF5F573A1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
