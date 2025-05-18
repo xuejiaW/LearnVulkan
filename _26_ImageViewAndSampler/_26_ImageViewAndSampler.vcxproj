@@ -475,6 +475,7 @@
     <ClCompile Include="Vulkan\Textures\TextureMgr.cpp" />
     <ClCompile Include="Vulkan\UniformBuffer\UniformBufferMgr.cpp" />
     <ClCompile Include="Vulkan\Utils\BufferHelper.cpp" />
+    <ClCompile Include="Vulkan\Utils\ImageHelper.cpp" />
     <ClCompile Include="Vulkan\ValidationLayerMgr.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -572,6 +573,7 @@
     <ClInclude Include="Vulkan\UniformBuffer\UniformBufferMgr.h" />
     <ClInclude Include="Vulkan\UniformBuffer\UniformBufferObject.h" />
     <ClInclude Include="Vulkan\Utils\BufferHelper.h" />
+    <ClInclude Include="Vulkan\Utils\ImageHelper.h" />
     <ClInclude Include="Vulkan\ValidationLayerMgr.h" />
     <ClInclude Include="Vulkan\Vertex\Vertex.h" />
     <ClInclude Include="Vulkan\Vertex\VertexDataMgr.h" />

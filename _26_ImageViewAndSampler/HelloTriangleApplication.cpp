@@ -52,6 +52,8 @@ void HelloTriangleApplication::initVulkan()
     FrameBuffersMgr::createFramebuffers();
     CommandBuffersMgr::createCommandPool();
     TextureMgr::createTextureImage();
+    TextureMgr::createTextureImageView();
+    TextureMgr::createTextureSampler();
     VertexDataMgr::createVertexBuffer();
     VertexDataMgr::createIndexBuffer();
     UniformBufferMgr::createUniformBuffers();
@@ -85,7 +87,9 @@ void HelloTriangleApplication::cleanup()
     UniformBufferMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
-    TextureMgr::destroyTextureImage(); 
+    TextureMgr::destroyTextureSampler();
+    TextureMgr::destroyTextureImageView();
+    TextureMgr::destroyTextureImage();
     LogicalDevicesMgr::destroyLogicalDevice();
     if (ValidationLayerMgr::enableValidationLayers)
         DebugMessengerMgr::destroyDebugUtilsMessengerExt(instance, nullptr);

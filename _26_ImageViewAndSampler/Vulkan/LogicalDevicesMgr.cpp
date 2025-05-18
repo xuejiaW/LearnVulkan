@@ -29,7 +29,9 @@ void LogicalDevicesMgr::createLogicalDevice()
         queueCreateInfos.push_back(queueCreateInfo);
     }
 
-    constexpr VkPhysicalDeviceFeatures deviceFeatures{};
+    VkPhysicalDeviceFeatures deviceFeatures{};
+    deviceFeatures.samplerAnisotropy = VK_TRUE;
+
     VkDeviceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
     createInfo.pQueueCreateInfos = queueCreateInfos.data();
@@ -51,20 +53,3 @@ void LogicalDevicesMgr::destroyLogicalDevice()
 {
     vkDestroyDevice(device, nullptr);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

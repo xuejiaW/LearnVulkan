@@ -73,22 +73,5 @@ bool PhysicalDevicesMgr::isDeviceSuitable(VkPhysicalDevice device)
         swapChainAdequate = !swapChainSupport.formats.empty() && !swapChainSupport.presentModes.empty();
     }
 
-    return deviceSuitable && queueFamilySuitable && extensionSupport && swapChainAdequate;
+    return deviceSuitable && queueFamilySuitable && extensionSupport && swapChainAdequate && deviceFeatures.samplerAnisotropy;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
