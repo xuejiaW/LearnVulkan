@@ -10,14 +10,9 @@ public:
     static void destroyCommandPool();
     static VkCommandPool commandPool;
 
+    static VkCommandBuffer beginSingleTimeCommands();
+    static void endSingleTimeCommands(VkCommandBuffer commandBuffer);
+
     static void createCommandBuffers();
     static std::vector<VkCommandBuffer> commandBuffers;
 };
-
-
-
-
-
-
-
-

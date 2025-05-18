@@ -18,6 +18,7 @@
 #include "Vulkan/CommandBuffers/CommandBuffersMgr.h"
 #include "Vulkan/GraphicPipeline/GraphicsPipelineMgr.h"
 #include "Vulkan/SwapChain/SwapChainMgr.h"
+#include "Vulkan/Textures/TextureMgr.h"
 #include "Vulkan/UniformBuffer/UniformBufferMgr.h"
 #include "Vulkan/Vertex/VertexDataMgr.h"
 
@@ -50,6 +51,7 @@ void HelloTriangleApplication::initVulkan()
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
     CommandBuffersMgr::createCommandPool();
+    TextureMgr::createTextureImage();
     VertexDataMgr::createVertexBuffer();
     VertexDataMgr::createIndexBuffer();
     UniformBufferMgr::createUniformBuffers();
@@ -83,6 +85,7 @@ void HelloTriangleApplication::cleanup()
     UniformBufferMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
+    TextureMgr::destroyTextureImage(); 
     LogicalDevicesMgr::destroyLogicalDevice();
     if (ValidationLayerMgr::enableValidationLayers)
         DebugMessengerMgr::destroyDebugUtilsMessengerExt(instance, nullptr);
