@@ -52,11 +52,11 @@ void HelloTriangleApplication::initVulkan()
     CommandBuffersMgr::createCommandPool();
     VertexDataMgr::createVertexBuffer();
     VertexDataMgr::createIndexBuffer();
+    CommandBuffersMgr::createCommandBuffers();
+    SyncObjectsMgr::createSyncObjects();
     UniformBufferMgr::createUniformBuffers();
     UniformBufferMgr::createDescriptorPool();
     UniformBufferMgr::createDescriptorSets();
-    CommandBuffersMgr::createCommandBuffers();
-    SyncObjectsMgr::createSyncObjects();
 }
 
 void HelloTriangleApplication::mainLoop()
@@ -190,9 +190,9 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
     vkCmdBindIndexBuffer(commandBuffer, VertexDataMgr::indexBuffer, 0, VK_INDEX_TYPE_UINT16);
 
     vkCmdBindDescriptorSets(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS,
-                        GraphicsPipelineMgr::pipelineLayout, 0, 1,
-                        &UniformBufferMgr::descriptorSets[currentFrame], 0, nullptr);
-    
+                            GraphicsPipelineMgr::pipelineLayout, 0, 1,
+                            &UniformBufferMgr::descriptorSets[currentFrame], 0, nullptr);
+
     vkCmdDrawIndexed(commandBuffer,
                      static_cast<uint32_t>(VertexDataMgr::indices.size()), 1, 0, 0, 0);
 
@@ -222,12 +222,12 @@ void HelloTriangleApplication::drawFrame()
         throw std::runtime_error("failed to acquire swap chain image!");
     }
 
+    UniformBufferMgr::updateUniformBuffer(currentFrame);
+
     vkResetFences(LogicalDevicesMgr::device, 1, &SyncObjectsMgr::inFlightFences[currentFrame]);
 
     vkResetCommandBuffer(CommandBuffersMgr::commandBuffers[currentFrame], /*VkCommandBufferResetFlagBits*/ 0);
     recordCommandBuffer(CommandBuffersMgr::commandBuffers[currentFrame], imageIndex);
-
-    UniformBufferMgr::updateUniformBuffer(currentFrame);
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;

@@ -42,7 +42,6 @@ void UniformBufferMgr::createDescriptorSetLayout()
 
 void UniformBufferMgr::createUniformBuffers()
 {
-
     uniformBuffers.resize(GraphicsPipelineMgr::MAX_FRAMES_IN_FLIGHT);
     uniformBuffersMemory.resize(GraphicsPipelineMgr::MAX_FRAMES_IN_FLIGHT);
     uniformBuffersMapped.resize(GraphicsPipelineMgr::MAX_FRAMES_IN_FLIGHT);

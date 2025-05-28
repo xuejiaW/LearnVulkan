@@ -229,12 +229,12 @@ void HelloTriangleApplication::drawFrame()
         throw std::runtime_error("failed to acquire swap chain image!");
     }
 
+    UniformBufferMgr::updateUniformBuffer(currentFrame);
+
     vkResetFences(LogicalDevicesMgr::device, 1, &SyncObjectsMgr::inFlightFences[currentFrame]);
 
     vkResetCommandBuffer(CommandBuffersMgr::commandBuffers[currentFrame], /*VkCommandBufferResetFlagBits*/ 0);
     recordCommandBuffer(CommandBuffersMgr::commandBuffers[currentFrame], imageIndex);
-
-    UniformBufferMgr::updateUniformBuffer(currentFrame);
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
