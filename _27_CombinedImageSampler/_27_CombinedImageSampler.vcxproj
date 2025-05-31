@@ -239,6 +239,7 @@
       <AdditionalIncludeDirectories>C:\VulkanSDK\1.4.304.1\Include;E:\Github\LearnVulkan\Include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Vulkan\DescriptorMgr.cpp" />
     <ClCompile Include="Vulkan\ExtensionsMgr.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -559,6 +560,7 @@
     <ClInclude Include="HelloTriangleApplication.h" />
     <ClInclude Include="Vulkan\CommandBuffers\CommandBuffersMgr.h" />
     <ClInclude Include="Vulkan\DebugMessengerMgr.h" />
+    <ClInclude Include="Vulkan\DescriptorMgr.h" />
     <ClInclude Include="Vulkan\ExtensionsMgr.h" />
     <ClInclude Include="Vulkan\FrameBuffersMgr.h" />
     <ClInclude Include="Vulkan\GraphicPipeline\Shaders\ShadersMgr.h" />

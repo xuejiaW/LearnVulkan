@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 
+#include "../DescriptorMgr.h"
 #include "../LogicalDevicesMgr.h"
 #include "Shaders/ShadersMgr.h"
 #include "../SwapChain/SwapChainMgr.h"
@@ -206,7 +207,7 @@ VkPipelineLayoutCreateInfo GraphicsPipelineMgr::getPipelineLayoutCreateInfo()
     VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
     pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
     pipelineLayoutInfo.setLayoutCount = 1;
-    pipelineLayoutInfo.pSetLayouts = &UniformBufferMgr::descriptorSetLayout;
+    pipelineLayoutInfo.pSetLayouts = &DescriptorMgr::descriptorSetLayout;
     pipelineLayoutInfo.pushConstantRangeCount = 0;
     pipelineLayoutInfo.pPushConstantRanges = nullptr;
     return pipelineLayoutInfo;

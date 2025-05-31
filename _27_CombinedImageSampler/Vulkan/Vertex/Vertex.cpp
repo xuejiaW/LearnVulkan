@@ -28,9 +28,3 @@ std::array<VkVertexInputAttributeDescription, 3> Vertex::getAttributeDescription
     attributeDescription[2].offset = offsetof(Vertex, texCoord);
     return attributeDescription;
 }
-
-
-
-
-
-

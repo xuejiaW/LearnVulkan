@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "Vulkan/DebugMessengerMgr.h"
+#include "Vulkan/DescriptorMgr.h"
 #include "Vulkan/ExtensionsMgr.h"
 #include "Vulkan/FrameBuffersMgr.h"
 #include "Vulkan/LogicalDevicesMgr.h"
@@ -47,7 +48,7 @@ void HelloTriangleApplication::initVulkan()
     LogicalDevicesMgr::createLogicalDevice();
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
-    UniformBufferMgr::createDescriptorSetLayout();
+    DescriptorMgr::createDescriptorSetLayout();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
     CommandBuffersMgr::createCommandPool();
@@ -57,8 +58,8 @@ void HelloTriangleApplication::initVulkan()
     VertexDataMgr::createVertexBuffer();
     VertexDataMgr::createIndexBuffer();
     UniformBufferMgr::createUniformBuffers();
-    UniformBufferMgr::createDescriptorPool();
-    UniformBufferMgr::createDescriptorSets();
+    DescriptorMgr::createDescriptorPool();
+    DescriptorMgr::createDescriptorSets();
     CommandBuffersMgr::createCommandBuffers();
     SyncObjectsMgr::createSyncObjects();
 }
@@ -78,13 +79,13 @@ void HelloTriangleApplication::cleanup()
 {
     SyncObjectsMgr::destroySyncObjects();
     CommandBuffersMgr::destroyCommandPool();
-    UniformBufferMgr::destroyDescriptorPool();
+    DescriptorMgr::destroyDescriptorPool();
     UniformBufferMgr::destroyUniformBuffers();
     VertexDataMgr::destroyIndexBuffer();
     VertexDataMgr::destroyVertexBuffer();
     FrameBuffersMgr::destroyFramebuffers();
     GraphicsPipelineMgr::destroyGraphicsPipeline();
-    UniformBufferMgr::destroyDescriptorSetLayout();
+    DescriptorMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
     TextureMgr::destroyTextureSampler();
@@ -198,7 +199,7 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
 
     vkCmdBindDescriptorSets(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS,
                         GraphicsPipelineMgr::pipelineLayout, 0, 1,
-                        &UniformBufferMgr::descriptorSets[currentFrame], 0, nullptr);
+                        &DescriptorMgr::descriptorSets[currentFrame], 0, nullptr);
     
     vkCmdDrawIndexed(commandBuffer,
                      static_cast<uint32_t>(VertexDataMgr::indices.size()), 1, 0, 0, 0);
