@@ -51,8 +51,8 @@ void HelloTriangleApplication::initVulkan()
     LogicalDevicesMgr::createLogicalDevice();
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
-    DepthBufferMgr::createDepthResources();
     DescriptorMgr::createDescriptorSetLayout();
+    DepthBufferMgr::createDepthResources();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
     CommandBuffersMgr::createCommandPool();
@@ -89,10 +89,10 @@ void HelloTriangleApplication::cleanup()
     VertexDataMgr::destroyVertexBuffer();
     FrameBuffersMgr::destroyFramebuffers();
     GraphicsPipelineMgr::destroyGraphicsPipeline();
+    DepthBufferMgr::destroyDepthResources();
     DescriptorMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
-    DepthBufferMgr::destroyDepthResources();
     TextureMgr::destroyTextureSampler();
     TextureMgr::destroyTextureImageView();
     TextureMgr::destroyTextureImage();

@@ -13,5 +13,4 @@ public:
 
 private:
     static VkFormat findSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
-    static bool hasStencilComponent(VkFormat format);
 };

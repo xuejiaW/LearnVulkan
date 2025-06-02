@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "../DepthBufferMgr.h"
 #include "../FrameBuffersMgr.h"
 #include "../LogicalDevicesMgr.h"
 #include "../PhysicalDevicesMgr.h"
@@ -151,9 +152,11 @@ void SwapChainMgr::recreateSwapChain()
     FrameBuffersMgr::destroyFramebuffers();
     destroyImageViews();
     destroySwapChain();
+    DepthBufferMgr::destroyDepthResources();
 
     createSwapChain();
     createImageViews();
+    DepthBufferMgr::createDepthResources();
     FrameBuffersMgr::createFramebuffers();
 }
 
