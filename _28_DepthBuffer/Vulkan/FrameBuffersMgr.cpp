@@ -1,7 +1,9 @@
 #include "FrameBuffersMgr.h"
 
+#include <array>
 #include <stdexcept>
 
+#include "DepthBufferMgr.h"
 #include "LogicalDevicesMgr.h"
 #include "GraphicPipeline/GraphicsPipelineMgr.h"
 #include "SwapChain/SwapChainMgr.h"
@@ -15,12 +17,12 @@ void FrameBuffersMgr::createFramebuffers()
 
     for (size_t i = 0; i < SwapChainMgr::imageViews.size(); i++)
     {
-        VkImageView attachments[] = {SwapChainMgr::imageViews[i]};
+        std::array<VkImageView, 2> attachments = {SwapChainMgr::imageViews[i], DepthBufferMgr::depthImageView};
         VkFramebufferCreateInfo framebufferInfo = {};
         framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
         framebufferInfo.renderPass = GraphicsPipelineMgr::renderPass;
-        framebufferInfo.attachmentCount = 1;
-        framebufferInfo.pAttachments = attachments;
+        framebufferInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
+        framebufferInfo.pAttachments = attachments.data();
         framebufferInfo.width = SwapChainMgr::imageExtent.width;
         framebufferInfo.height = SwapChainMgr::imageExtent.height;
         framebufferInfo.layers = 1;
@@ -39,15 +41,3 @@ void FrameBuffersMgr::destroyFramebuffers()
         vkDestroyFramebuffer(LogicalDevicesMgr::device, framebuffer, nullptr);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

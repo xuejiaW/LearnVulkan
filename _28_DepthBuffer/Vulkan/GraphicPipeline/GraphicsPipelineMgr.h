@@ -28,6 +28,7 @@ private:
     static VkPipelineColorBlendStateCreateInfo getColorBlendStateCreateInfo();
     static VkPipelineDynamicStateCreateInfo getVKDynamicStateCreateInfo();
     static VkPipelineLayoutCreateInfo getPipelineLayoutCreateInfo();
+    static VkPipelineDepthStencilStateCreateInfo getDepthStencilStateCreateInfo();
 };
 
 

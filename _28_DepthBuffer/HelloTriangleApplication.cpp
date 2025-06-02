@@ -3,11 +3,14 @@
 #include "HelloTriangleApplication.h"
 
 #include <GLFW/glfw3.h>
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
 
 #include <stdexcept>
 #include <vector>
 
 #include "Vulkan/DebugMessengerMgr.h"
+#include "Vulkan/DepthBufferMgr.h"
 #include "Vulkan/DescriptorMgr.h"
 #include "Vulkan/ExtensionsMgr.h"
 #include "Vulkan/FrameBuffersMgr.h"
@@ -48,6 +51,7 @@ void HelloTriangleApplication::initVulkan()
     LogicalDevicesMgr::createLogicalDevice();
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
+    DepthBufferMgr::createDepthResources();
     DescriptorMgr::createDescriptorSetLayout();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
@@ -88,6 +92,7 @@ void HelloTriangleApplication::cleanup()
     DescriptorMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
+    DepthBufferMgr::destroyDepthResources();
     TextureMgr::destroyTextureSampler();
     TextureMgr::destroyTextureImageView();
     TextureMgr::destroyTextureImage();
@@ -111,7 +116,7 @@ void HelloTriangleApplication::initWindow()
     glfwInit();
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-    window = glfwCreateWindow(WIDTH, HEIGHT, "27_Vulkan_Window", nullptr, nullptr);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "28_Vulkan_Window", nullptr, nullptr);
     glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
 }
 
@@ -171,9 +176,11 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
     renderPassInfo.renderArea.offset = {0, 0};
     renderPassInfo.renderArea.extent = SwapChainMgr::imageExtent;
 
-    VkClearValue clearValue{{{0.0f, 0.0f, 0.0f, 1.0f}}};
-    renderPassInfo.clearValueCount = 1;
-    renderPassInfo.pClearValues = &clearValue;
+    std::array<VkClearValue, 2> clearValues{};
+    clearValues[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}}; // Clear color to white
+    clearValues[1].depthStencil = {1.0f, 0};
+    renderPassInfo.clearValueCount = clearValues.size();
+    renderPassInfo.pClearValues = clearValues.data();
     vkCmdBeginRenderPass(commandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
 
     vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineMgr::graphicsPipeline);
@@ -198,9 +205,9 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
     vkCmdBindIndexBuffer(commandBuffer, VertexDataMgr::indexBuffer, 0, VK_INDEX_TYPE_UINT16);
 
     vkCmdBindDescriptorSets(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS,
-                        GraphicsPipelineMgr::pipelineLayout, 0, 1,
-                        &DescriptorMgr::descriptorSets[currentFrame], 0, nullptr);
-    
+                            GraphicsPipelineMgr::pipelineLayout, 0, 1,
+                            &DescriptorMgr::descriptorSets[currentFrame], 0, nullptr);
+
     vkCmdDrawIndexed(commandBuffer,
                      static_cast<uint32_t>(VertexDataMgr::indices.size()), 1, 0, 0, 0);
 
@@ -281,7 +288,3 @@ void HelloTriangleApplication::drawFrame()
 
     currentFrame = (currentFrame + 1) % GraphicsPipelineMgr::MAX_FRAMES_IN_FLIGHT;
 }
-
-
-
-

@@ -165,7 +165,7 @@ void TextureMgr::copyBufferToImage(VkBuffer buffer, VkImage image, uint32_t widt
 
 void TextureMgr::createTextureImageView()
 {
-    textureImageView = ImageHelper::createImageView(textureImage, VK_FORMAT_R8G8B8A8_SRGB);
+    textureImageView = ImageHelper::createImageView(textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
 }
 
 void TextureMgr::destroyTextureImageView()
@@ -210,4 +210,3 @@ void TextureMgr::destroyTextureSampler()
 {
     vkDestroySampler(LogicalDevicesMgr::device, textureSampler, nullptr);
 }
-

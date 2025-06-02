@@ -4,6 +4,6 @@
 class ImageHelper
 {
 public:
-    static VkImageView createImageView(VkImage image, VkFormat format);
+    static VkImageView createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
 };
 
