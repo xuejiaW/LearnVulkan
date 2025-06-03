@@ -56,6 +56,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_27_CombinedImageSampler", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_28_DepthBuffer", "_28_DepthBuffer\_28_DepthBuffer.vcxproj", "{CF8A2924-9E39-4753-B9BB-93C2A26896A8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_29_LoadingModels", "_29_LoadingModels\_29_LoadingModels.vcxproj", "{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -280,5 +282,13 @@ Global
 		{CF8A2924-9E39-4753-B9BB-93C2A26896A8}.Release|Win32.Build.0 = Release|Win32
 		{CF8A2924-9E39-4753-B9BB-93C2A26896A8}.Release|x64.ActiveCfg = Release|x64
 		{CF8A2924-9E39-4753-B9BB-93C2A26896A8}.Release|x64.Build.0 = Release|x64
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Debug|Win32.Build.0 = Debug|Win32
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Debug|x64.ActiveCfg = Debug|x64
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Debug|x64.Build.0 = Debug|x64
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Release|Win32.ActiveCfg = Release|Win32
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Release|Win32.Build.0 = Release|Win32
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Release|x64.ActiveCfg = Release|x64
+		{C2250E7D-B9FA-4B7F-8E7B-85BB1C7FD68F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal

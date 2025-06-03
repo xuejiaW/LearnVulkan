@@ -29,4 +29,7 @@ std::array<VkVertexInputAttributeDescription, 3> Vertex::getAttributeDescription
     return attributeDescription;
 }
 
-
+bool Vertex::operator==(const Vertex& other) const
+{
+    return position == other.position && color == other.color && texCoord == other.texCoord;
+}

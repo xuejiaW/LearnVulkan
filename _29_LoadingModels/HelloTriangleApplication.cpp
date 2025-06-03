@@ -21,6 +21,7 @@
 #include "Vulkan/ValidationLayerMgr.h"
 #include "Vulkan/CommandBuffers/CommandBuffersMgr.h"
 #include "Vulkan/GraphicPipeline/GraphicsPipelineMgr.h"
+#include "Vulkan/Models/ModelsMgr.h"
 #include "Vulkan/SwapChain/SwapChainMgr.h"
 #include "Vulkan/Textures/TextureMgr.h"
 #include "Vulkan/UniformBuffer/UniformBufferMgr.h"
@@ -56,9 +57,10 @@ void HelloTriangleApplication::initVulkan()
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
     CommandBuffersMgr::createCommandPool();
-    TextureMgr::createTextureImage();
+    TextureMgr::createTextureImage("../Textures/viking_room.png");
     TextureMgr::createTextureImageView();
     TextureMgr::createTextureSampler();
+    ModelsMgr::loadModel();
     VertexDataMgr::createVertexBuffer();
     VertexDataMgr::createIndexBuffer();
     UniformBufferMgr::createUniformBuffers();
@@ -116,7 +118,7 @@ void HelloTriangleApplication::initWindow()
     glfwInit();
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-    window = glfwCreateWindow(WIDTH, HEIGHT, "28_Vulkan_Window", nullptr, nullptr);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "29_Vulkan_Window", nullptr, nullptr);
     glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
 }
 
@@ -202,7 +204,7 @@ void HelloTriangleApplication::recordCommandBuffer(VkCommandBuffer commandBuffer
     const VkBuffer vertexBuffers[] = {VertexDataMgr::vertexBuffer};
     constexpr VkDeviceSize offsets[] = {0};
     vkCmdBindVertexBuffers(commandBuffer, 0, 1, vertexBuffers, offsets);
-    vkCmdBindIndexBuffer(commandBuffer, VertexDataMgr::indexBuffer, 0, VK_INDEX_TYPE_UINT16);
+    vkCmdBindIndexBuffer(commandBuffer, VertexDataMgr::indexBuffer, 0, VK_INDEX_TYPE_UINT32);
 
     vkCmdBindDescriptorSets(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS,
                             GraphicsPipelineMgr::pipelineLayout, 0, 1,

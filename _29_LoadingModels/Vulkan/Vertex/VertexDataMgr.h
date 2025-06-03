@@ -6,7 +6,7 @@ class VertexDataMgr
 {
 public:
     static std::vector<Vertex> vertices;
-    static std::vector<uint16_t> indices;
+    static std::vector<uint32_t> indices;
     static void createVertexBuffer();
     static void createIndexBuffer();
     static void destroyVertexBuffer();

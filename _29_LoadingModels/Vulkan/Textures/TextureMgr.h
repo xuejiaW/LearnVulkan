@@ -1,10 +1,12 @@
 #pragma once
 #include <vulkan/vulkan_core.h>
 
+#include <string>
+
 class TextureMgr
 {
 public:
-    static void createTextureImage();
+    static void createTextureImage(std::string path);
     static void destroyTextureImage();
 
     static void createTextureImageView();

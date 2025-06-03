@@ -14,10 +14,10 @@ VkDeviceMemory TextureMgr::textureImageMemory = nullptr;
 VkImageView TextureMgr::textureImageView = nullptr;
 VkSampler TextureMgr::textureSampler = nullptr;
 
-void TextureMgr::createTextureImage()
+void TextureMgr::createTextureImage(std::string path)
 {
     int texWidth, texHeight, texChannels;
-    stbi_uc* pixels = stbi_load("../textures/texture.jpg", &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
+    stbi_uc* pixels = stbi_load(path.c_str(), &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
     VkDeviceSize imageSize = static_cast<VkDeviceSize>(texWidth * texHeight * 4);
 
     if (!pixels)
