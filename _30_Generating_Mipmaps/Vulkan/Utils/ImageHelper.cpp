@@ -4,7 +4,7 @@
 
 #include "../LogicalDevicesMgr.h"
 
-VkImageView ImageHelper::createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags)
+VkImageView ImageHelper::createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags, uint32_t mipLevels)
 {
     VkImageViewCreateInfo viewInfo = {};
     viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
@@ -17,7 +17,7 @@ VkImageView ImageHelper::createImageView(VkImage image, VkFormat format, VkImage
     viewInfo.components.a = VK_COMPONENT_SWIZZLE_IDENTITY;
     viewInfo.subresourceRange.aspectMask = aspectFlags;
     viewInfo.subresourceRange.baseMipLevel = 0;
-    viewInfo.subresourceRange.levelCount = 1;
+    viewInfo.subresourceRange.levelCount = mipLevels;
     viewInfo.subresourceRange.baseArrayLayer = 0;
     viewInfo.subresourceRange.layerCount = 1;
 
@@ -29,6 +29,3 @@ VkImageView ImageHelper::createImageView(VkImage image, VkFormat format, VkImage
 
     return imageView;
 }
-
-
-

@@ -166,7 +166,7 @@ void SwapChainMgr::createImageViews()
 
     for (size_t i = 0; i < images.size(); i++)
     {
-        imageViews[i] = ImageHelper::createImageView(images[i], imageFormat, VK_IMAGE_ASPECT_COLOR_BIT);
+        imageViews[i] = ImageHelper::createImageView(images[i], imageFormat, VK_IMAGE_ASPECT_COLOR_BIT, 1);
     }
 }
 
@@ -182,4 +182,3 @@ void SwapChainMgr::destroyImageViews()
         vkDestroyImageView(LogicalDevicesMgr::device, imageView, nullptr);
     }
 }
-
