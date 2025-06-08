@@ -60,6 +60,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_29_LoadingModels", "_29_Lo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_30_Generating_Mipmaps", "_30_Generating_Mipmaps\_30_Generating_Mipmaps.vcxproj", "{0C5B31CC-C161-42E5-9944-658165FAB0FA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_31_MultiSampling", "_31_MultiSampling\_31_MultiSampling.vcxproj", "{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -300,5 +302,13 @@ Global
 		{0C5B31CC-C161-42E5-9944-658165FAB0FA}.Release|Win32.Build.0 = Release|Win32
 		{0C5B31CC-C161-42E5-9944-658165FAB0FA}.Release|x64.ActiveCfg = Release|x64
 		{0C5B31CC-C161-42E5-9944-658165FAB0FA}.Release|x64.Build.0 = Release|x64
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Debug|Win32.ActiveCfg = Debug|Win32
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Debug|Win32.Build.0 = Debug|Win32
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Debug|x64.ActiveCfg = Debug|x64
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Debug|x64.Build.0 = Debug|x64
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Release|Win32.ActiveCfg = Release|Win32
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Release|Win32.Build.0 = Release|Win32
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Release|x64.ActiveCfg = Release|x64
+		{79ECA78F-20E8-4D8B-9C31-4BB01FBC0775}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
