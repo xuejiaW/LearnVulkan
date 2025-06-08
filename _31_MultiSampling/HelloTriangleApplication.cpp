@@ -15,6 +15,7 @@
 #include "Vulkan/ExtensionsMgr.h"
 #include "Vulkan/FrameBuffersMgr.h"
 #include "Vulkan/LogicalDevicesMgr.h"
+#include "Vulkan/MsaaMgr.h"
 #include "Vulkan/PhysicalDevicesMgr.h"
 #include "Vulkan/SurfaceMgr.h"
 #include "Vulkan/SyncObjectsMgr.h"
@@ -53,6 +54,7 @@ void HelloTriangleApplication::initVulkan()
     SwapChainMgr::createSwapChain();
     SwapChainMgr::createImageViews();
     DescriptorMgr::createDescriptorSetLayout();
+    MsaaMgr::createColorResources();
     DepthBufferMgr::createDepthResources();
     GraphicsPipelineMgr::createGraphicsPipeline("Shaders/TriangleVert.spv", "Shaders/TriangleFrag.spv");
     FrameBuffersMgr::createFramebuffers();
@@ -92,6 +94,7 @@ void HelloTriangleApplication::cleanup()
     FrameBuffersMgr::destroyFramebuffers();
     GraphicsPipelineMgr::destroyGraphicsPipeline();
     DepthBufferMgr::destroyDepthResources();
+    MsaaMgr::destroyColorResources();
     DescriptorMgr::destroyDescriptorSetLayout();
     SwapChainMgr::destroyImageViews();
     SwapChainMgr::destroySwapChain();
@@ -290,4 +293,3 @@ void HelloTriangleApplication::drawFrame()
 
     currentFrame = (currentFrame + 1) % GraphicsPipelineMgr::MAX_FRAMES_IN_FLIGHT;
 }
-

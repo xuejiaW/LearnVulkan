@@ -5,6 +5,7 @@
 
 #include "DepthBufferMgr.h"
 #include "LogicalDevicesMgr.h"
+#include "MsaaMgr.h"
 #include "GraphicPipeline/GraphicsPipelineMgr.h"
 #include "SwapChain/SwapChainMgr.h"
 
@@ -17,7 +18,7 @@ void FrameBuffersMgr::createFramebuffers()
 
     for (size_t i = 0; i < SwapChainMgr::imageViews.size(); i++)
     {
-        std::array<VkImageView, 2> attachments = {SwapChainMgr::imageViews[i], DepthBufferMgr::depthImageView};
+        std::array<VkImageView, 3> attachments = {MsaaMgr::colorImageView, DepthBufferMgr::depthImageView,SwapChainMgr::imageViews[i]};
         VkFramebufferCreateInfo framebufferInfo = {};
         framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
         framebufferInfo.renderPass = GraphicsPipelineMgr::renderPass;

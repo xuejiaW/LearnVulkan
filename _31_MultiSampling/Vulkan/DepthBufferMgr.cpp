@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 #include "LogicalDevicesMgr.h"
+#include "MsaaMgr.h"
 #include "PhysicalDevicesMgr.h"
 #include "SwapChain/SwapChainMgr.h"
 #include "Textures/TextureMgr.h"
@@ -15,7 +16,7 @@ VkImageView DepthBufferMgr::depthImageView = VK_NULL_HANDLE;
 void DepthBufferMgr::createDepthResources()
 {
     VkFormat depthFormat = findDepthFormat();
-    TextureMgr::createImage(SwapChainMgr::imageExtent.width, SwapChainMgr::imageExtent.height, 1, depthFormat,
+    TextureMgr::createImage(SwapChainMgr::imageExtent.width, SwapChainMgr::imageExtent.height, 1, PhysicalDevicesMgr::msaaSamples, depthFormat,
                             VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT,
                             VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, depthImage, depthImageMemory);
     depthImageView = ImageHelper::createImageView(depthImage, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT, 1);

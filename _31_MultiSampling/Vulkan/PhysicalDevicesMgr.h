@@ -10,32 +10,9 @@ public:
     bool static checkDeviceExtensionsSupport(VkPhysicalDevice device);
     static VkPhysicalDevice physicalDevice;
     static std::vector<const char*> deviceExtensions;
+    static VkSampleCountFlagBits msaaSamples;
+
 private:
+    static VkSampleCountFlagBits getMaxUsableSampleCount();
     static bool isDeviceSuitable(VkPhysicalDevice device);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,6 +11,7 @@
 
 VkPhysicalDevice PhysicalDevicesMgr::physicalDevice = VK_NULL_HANDLE;
 std::vector<const char*> PhysicalDevicesMgr::deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
+VkSampleCountFlagBits PhysicalDevicesMgr::msaaSamples = VK_SAMPLE_COUNT_1_BIT;
 
 void PhysicalDevicesMgr::pickPhysicalDevice(VkInstance instance)
 {
@@ -28,6 +29,7 @@ void PhysicalDevicesMgr::pickPhysicalDevice(VkInstance instance)
         if (isDeviceSuitable(device))
         {
             physicalDevice = device;
+            msaaSamples = getMaxUsableSampleCount();
             break;
         }
     }
@@ -76,6 +78,19 @@ bool PhysicalDevicesMgr::isDeviceSuitable(VkPhysicalDevice device)
     return deviceSuitable && queueFamilySuitable && extensionSupport && swapChainAdequate && deviceFeatures.samplerAnisotropy;
 }
 
+VkSampleCountFlagBits PhysicalDevicesMgr::getMaxUsableSampleCount()
+{
+    VkPhysicalDeviceProperties deviceProperties;
+    vkGetPhysicalDeviceProperties(physicalDevice, &deviceProperties);
+    VkSampleCountFlags counts = deviceProperties.limits.framebufferColorSampleCounts &
+                                deviceProperties.limits.framebufferDepthSampleCounts;
 
+    if (counts & VK_SAMPLE_COUNT_64_BIT) return VK_SAMPLE_COUNT_64_BIT;
+    if (counts & VK_SAMPLE_COUNT_32_BIT) return VK_SAMPLE_COUNT_32_BIT;
+    if (counts & VK_SAMPLE_COUNT_16_BIT) return VK_SAMPLE_COUNT_16_BIT;
+    if (counts & VK_SAMPLE_COUNT_8_BIT) return VK_SAMPLE_COUNT_8_BIT;
+    if (counts & VK_SAMPLE_COUNT_4_BIT) return VK_SAMPLE_COUNT_4_BIT;
+    if (counts & VK_SAMPLE_COUNT_2_BIT) return VK_SAMPLE_COUNT_2_BIT;
 
-
+    return VK_SAMPLE_COUNT_1_BIT;
+}

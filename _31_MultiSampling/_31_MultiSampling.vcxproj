@@ -394,6 +394,7 @@
     </ClCompile>
     <ClCompile Include="Vulkan\LogicalDevicesMgr.cpp" />
     <ClCompile Include="Vulkan\Models\ModelsMgr.cpp" />
+    <ClCompile Include="Vulkan\MsaaMgr.cpp" />
     <ClCompile Include="Vulkan\PhysicalDevicesMgr.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -569,6 +570,7 @@
     <ClInclude Include="Vulkan\GraphicPipeline\Shaders\ShadersMgr.h" />
     <ClInclude Include="Vulkan\LogicalDevicesMgr.h" />
     <ClInclude Include="Vulkan\Models\ModelsMgr.h" />
+    <ClInclude Include="Vulkan\MsaaMgr.h" />
     <ClInclude Include="Vulkan\PhysicalDevicesMgr.h" />
     <ClInclude Include="Vulkan\GraphicPipeline\GraphicsPipelineMgr.h" />
     <ClInclude Include="Vulkan\SurfaceMgr.h" />
